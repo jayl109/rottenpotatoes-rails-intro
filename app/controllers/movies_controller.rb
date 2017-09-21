@@ -49,7 +49,7 @@ class MoviesController < ApplicationController
     @all_ratings = {}
     Movie.ratings().each do |rating|
       val = (session[:ratings] == nil) 
-      val2 = (session[:ratings].include? rating)
+      val2 = val && (session[:ratings].include? rating)
       puts(val)
       puts(val2)
       @all_ratings[rating.to_sym()] = val || val2
